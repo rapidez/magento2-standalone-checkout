@@ -1,0 +1,46 @@
+{
+    "name": "rapidez/magento2-standalone-checkout",
+    "type": "magento2-module",
+    "description": "A connector to open the checkout in Rapidez instead!",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Indy Koning",
+            "role": "developer"
+        }
+    ],
+    "require": {
+        "php": "^8.0 || ^8.1",
+        "guzzlehttp/guzzle": "*",
+        "magento/framework": "*",
+        "magento/module-checkout": "*",
+        "magento/module-customer": "*",
+        "magento/module-integration": "*",
+        "magento/module-quote": "*"
+    },
+    "require-dev": {
+        "bitexpert/phpstan-magento": "^0.32.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "magento/composer-dependency-version-audit-plugin": true
+        },
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "Rapidez\\StandaloneCheckout\\": "src"
+        },
+        "files": [
+            "src/registration.php"
+        ]
+    },
+    "repositories": {
+        "magento": {
+            "type": "composer",
+            "url": "https://repo-magento-mirror.fooman.co.nz/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

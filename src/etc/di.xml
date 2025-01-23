@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Checkout\Controller\Index\Index">
+        <plugin name="Rapidez_StandaloneCheckout_Plugin_Magento_Checkout_Controller_Index_Index" type="Rapidez\StandaloneCheckout\Plugin\Magento\Checkout\Controller\Index\Index" sortOrder="10" disabled="false"/>
+    </type>
+</config>

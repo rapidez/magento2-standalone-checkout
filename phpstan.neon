@@ -1,0 +1,9 @@
+includes:
+    - vendor/bitexpert/phpstan-magento/extension.neon
+parameters:
+    paths:
+        - .
+    excludePaths:
+        - vendor
+        - Test/*
+    level: 5

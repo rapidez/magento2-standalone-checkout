@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="rapidez" translate="label" sortOrder="999">
+            <label>Rapidez</label>
+        </tab>
+        <section id="standalone_checkout" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+            <label>Standalone Checkout</label>
+            <tab>rapidez</tab>
+            <resource>Rapidez_StandaloneCheckout::config_rapidez_standalonecheckout</resource>
+            <group id="general" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+                <label>General</label>
+                <field id="rapidez_url" type="text" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+                    <label>Rapidez Url</label>
+                    <comment>The base Rapidez url of your site e.g https://checkout.example.com</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
