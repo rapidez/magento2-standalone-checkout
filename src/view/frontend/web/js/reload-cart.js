@@ -13,7 +13,7 @@ require([
 
     const cartData = customerData.get('cart');
 
-    customerData.getInitCustomerData().done(function () {
+    customerData?.getInitCustomerData()?.done(function () {
         if (!cartData()?.items || cartData().items?.length === 0) {
             return;
         }
