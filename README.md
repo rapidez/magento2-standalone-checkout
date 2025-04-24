@@ -42,6 +42,8 @@ Rapidez then stores the mask for safekeeping, and returns a redirect url contain
 Magento will redirect you to this url, then Rapidez can add the mask to your cookies and remove the key from storage.
 Once Rapidez has that we can get all info we need using GraphQL.
 
+![](images/standalone-checkout-diagram.jpg)
+
 ### Sounds complicated, why?
 
 Because anyone with the cart mask or customer token can impersonate you, so we need to get them across securely.
