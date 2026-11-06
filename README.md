@@ -5,7 +5,7 @@ This Magento module will send users with a valid cart to the Rapidez checkout in
 ## Installation
 
 ### Install the package using composer
- 
+
 ```bash
 composer install rapidez/magento2-standalone-checkout
 ```
@@ -23,6 +23,9 @@ You can do so under `Stores > Configuration > Rapidez > Standalone Checkout > Ra
 
 If this is not set the default Magento checkout will still be used.
 
+You also need to set the Rapidez admin token, this must be the same as the `RAPIDEZ_TOKEN` in the Rapidez `.env`.
+You can do so under `Stores > Configuration > Rapidez > Standalone Checkout > Rapidez Token`
+
 ## Considerations
 
 ### Registration
@@ -35,7 +38,7 @@ By default Rapidez shows a full header and menu on the success page, you might w
 
 ## How does it work?
 
-We hook into the checkout controller, if we have a Rapidez url set. 
+We hook into the checkout controller, if we have a Rapidez url set.
 And have a valid cart mask/hash we will make a call to Rapidez' `api/get-checkout-url` endpoint with the mask.
 Rapidez then stores the mask for safekeeping, and returns a redirect url containing the key to get the mask.
 
