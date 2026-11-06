@@ -14,6 +14,11 @@
                     <label>Rapidez Url</label>
                     <comment>The base Rapidez url of your site e.g https://checkout.example.com</comment>
                 </field>
+                <field id="rapidez_token" type="obscure" sortOrder="20" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+                    <label>Rapidez Token</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                    <comment>The RAPIDEZ_TOKEN from the Rapidez .env</comment>
+                </field>
             </group>
         </section>
     </system>

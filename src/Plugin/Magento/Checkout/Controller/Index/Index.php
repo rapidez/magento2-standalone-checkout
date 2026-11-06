@@ -11,6 +11,7 @@ use Magento\Customer\Model\Session as CustomerSession;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\Controller\Result\Redirect;
 use Magento\Framework\Controller\ResultFactory;
+use Magento\Framework\Encryption\EncryptorInterface;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Integration\Model\Oauth\TokenFactory;
 use Magento\Quote\Model\QuoteIdMask;
@@ -29,7 +30,8 @@ class Index
         private TokenFactory $tokenFactory,
         private ClientFactory $clientFactory,
         private ResultFactory $resultFactory,
-        private ScopeConfigInterface $scopeConfig
+        private ScopeConfigInterface $scopeConfig,
+        private EncryptorInterface $encryptor
     ) {}
 
     public function getRapidezUrl(): ?string
@@ -38,6 +40,16 @@ class Index
             'standalone_checkout/general/rapidez_url',
             \Magento\Store\Model\ScopeInterface::SCOPE_STORE,
          );
+    }
+
+    public function getRapidezToken(): ?string
+    {
+        $token = $this->scopeConfig->getValue(
+            'standalone_checkout/general/rapidez_token',
+            \Magento\Store\Model\ScopeInterface::SCOPE_STORE,
+        );
+
+        return $token ? $this->encryptor->decrypt($token) : null;
     }
 
     public function getQuoteHash(): ?string
@@ -98,7 +110,8 @@ class Index
             [
                 'json' => [
                     'mask' => $mask,
-                    'token' => $token,
+                    'customer_token' => $token,
+                    'token' => $this->getRapidezToken(),
                 ],
                 'headers' => [
                     'Accept' => 'application/json',
